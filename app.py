@@ -23,16 +23,16 @@ while True:
   humidity = sense.get_humidity() 
   pressure_mb = sense.get_pressure() 
   cpu_temp = subprocess.check_output("vcgencmd measure_temp", shell=True)
-  array = cpu_tem.split("=")
+  array = cpu_temp.split("=")
   array2 = array[1].split("'")
 
   cpu_tempc = float(array2[0])
-  cpu_tempc = float("{0:.2f}".format(cpu_temp))
+  cpu_tempc = float("{0:.2f}".format(cpu_tempc))
 
-  temp_calibrated_c = temp_c - ((cpu_tempc - temp_c)/5.466)
+  temp_calibrated_c = temp_c - ((cpu_tempc - temp_c)/1.78)
 
   # Format the data
-  temp_f = temp_c
+  temp_f = temp_calibrated_c
   temp_f = float("{0:.2f}".format(temp_f))
   humidity = float("{0:.2f}".format(humidity))
   pressure_in = 0.03937008*(pressure_mb)
@@ -43,10 +43,12 @@ while True:
   print SENSOR_LOCATION_NAME + " Humidity(%): " + str(humidity)
   print SENSOR_LOCATION_NAME + " Pressure(IN): " + str(pressure_in)
   print(cpu_tempc)
+  print(temp_c)
   streamer.log(":sunny: " + SENSOR_LOCATION_NAME + " Temperature(C)", temp_f)
   streamer.log(":sweat_drops: " + SENSOR_LOCATION_NAME + " Humidity(%)", humidity)
   streamer.log(":cloud: " + SENSOR_LOCATION_NAME + " Pressure(IN)", pressure_in)
   streamer.log("CPU Temperature", cpu_tempc)
+  streamer.log("Measured Temperature", temp_c)
   streamer.flush()
 
   # Set LED text
