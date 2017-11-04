@@ -5,14 +5,15 @@ from ISStreamer.Streamer import Streamer
   
 # --------- User Settings ---------
 CITY = "Oslo"
-BUCKET_NAME = ":partly_sunny: " + CITY + " Weather"
-BUCKET_KEY = "sensehat"
-ACCESS_KEY = "INITIALSLATE_TOKEN"
 SENSOR_LOCATION_NAME = "Office"
 MINUTES_BETWEEN_SENSEHAT_READS = 0.1
+bucketKey = os.getenv('IS_BUCKET_KEY', 'resinio_temp_mon_test')
+bucketName = os.getenv('IS_BUCKET_NAME', 'resin.io temp mon')
+accessKey = os.getenv('IS_ACCESS_KEY', '')
 # ---------------------------------
 
-streamer = Streamer(bucket_name=BUCKET_NAME, bucket_key=BUCKET_KEY, access_key=ACCESS_KEY)
+
+streamer = Streamer(bucket_name=bucketName, bucket_key=bucketKey, access_key=accessKey)
   
 sense = SenseHat()  
   
