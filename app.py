@@ -56,20 +56,3 @@ while True:
 
   ap.show_message("%.1f C" % temp_c, scroll_speed=0.10, text_colour=[0, 255, 0])
   time.sleep(10)
-
-  # LED Matrix
-  # X = [255, 0, 0]  # Red
-  # O = [255, 255, 255]  # White
-
-  # question_mark = [
-  # O, O, O, X, X, O, O, O,
-  # O, O, X, O, O, X, O, O,
-  # O, O, O, O, O, X, O, O,
-  # O, O, O, O, X, O, O, O,
-  # O, O, O, X, O, O, O, O,
-  # O, O, O, X, O, O, O, O,
-  # O, O, O, O, O, O, O, O,
-  # O, O, O, X, O, O, O, O
-  # ]
-
-  sense.set_pixels(question_mark)

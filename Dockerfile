@@ -1,4 +1,4 @@
-FROM resin/rpi-raspbian
+FROM resin/rpi-raspbian:latest
 ENV READTHEDOCS True
 
 RUN apt-get update -q &&\
