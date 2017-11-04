@@ -1,11 +1,12 @@
 from sense_hat import SenseHat  
 import time  
 import sys  
+import os
 from ISStreamer.Streamer import Streamer  
   
 # --------- User Settings ---------
 CITY = "Oslo"
-SENSOR_LOCATION_NAME = "Office"
+SENSOR_LOCATION_NAME = "Home"
 MINUTES_BETWEEN_SENSEHAT_READS = 0.1
 bucketKey = os.getenv('IS_BUCKET_KEY', 'resinio_temp_mon_test')
 bucketName = os.getenv('IS_BUCKET_NAME', 'resin.io temp mon')
