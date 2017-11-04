@@ -35,7 +35,7 @@ while True:
   pressure_mb = sense.get_pressure() 
 
   # Format the data
-  temp_f = temp_c
+  temp_f = temp_c * 0.95
   temp_f = float("{0:.2f}".format(temp_f))
   humidity = float("{0:.2f}".format(humidity))
   pressure_in = 0.03937008*(pressure_mb)
@@ -48,11 +48,9 @@ while True:
   streamer.log(":sunny: " + SENSOR_LOCATION_NAME + " Temperature(C)", temp_f)
   streamer.log(":sweat_drops: " + SENSOR_LOCATION_NAME + " Humidity(%)", humidity)
   streamer.log(":cloud: " + SENSOR_LOCATION_NAME + " Pressure(IN)", pressure_in)
-
   streamer.flush()
+
+  sense.set_rotation(180)        # Set LED matrix to scroll from right to left
+  sense.show_message("%.1f C" % temp_c, scroll_speed=0.10, text_colour=[0, 255, 0])
+
   time.sleep(60*MINUTES_BETWEEN_SENSEHAT_READS)
-
-  ap.set_rotation(180)        # Set LED matrix to scroll from right to left
-
-  ap.show_message("%.1f C" % temp_c, scroll_speed=0.10, text_colour=[0, 255, 0])
-  time.sleep(10)
