@@ -40,11 +40,11 @@ while True:
 
   # Set LED text
   sense.set_rotation(180)        # Set LED matrix to scroll from right to left
-  sense.show_message("%.1f C" % temp_c, scroll_speed=0.10, text_colour=[0, 255, 0])
+  sense.show_message("%.1f C" % temp_f, scroll_speed=0.10, text_colour=[0, 255, 0])
 
   # Take picture
   with picamera.PiCamera() as camera:
-      camera.resolution = (1920, 1080)
+      camera.resolution = (640, 480)
       camera.vflip = True
       time.sleep(2)
       camera.capture('/data/image.jpg')
