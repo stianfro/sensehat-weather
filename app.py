@@ -4,6 +4,7 @@ import time
 import picamera
 import sys  
 import os
+import subprocess
   
 # --------- User Settings ---------
 CITY = "Oslo"
