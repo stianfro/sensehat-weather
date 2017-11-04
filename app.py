@@ -23,7 +23,7 @@ while True:
   pressure_mb = sense.get_pressure() 
 
   # Format the data
-  temp_f = temp_c * 0.90
+  temp_f = temp_c * 0.12
   temp_f = float("{0:.2f}".format(temp_f))
   humidity = float("{0:.2f}".format(humidity))
   pressure_in = 0.03937008*(pressure_mb)
@@ -44,7 +44,7 @@ while True:
 
   # Take picture
   with picamera.PiCamera() as camera:
-      camera.resolution = (320, 240)
+      camera.resolution = (1920, 1080)
       camera.vflip = True
       time.sleep(2)
       camera.capture('/data/image.jpg')
