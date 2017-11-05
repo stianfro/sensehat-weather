@@ -13,6 +13,7 @@ MINUTES_BETWEEN_SENSEHAT_READS = 0.1
 bucketKey = os.getenv('IS_BUCKET_KEY', 'resinio_temp_mon_test')
 bucketName = os.getenv('IS_BUCKET_NAME', 'resin.io temp mon')
 accessKey = os.getenv('IS_ACCESS_KEY', '')
+wunderKey = os.getenv('WUNDER_API_KEY', '')
 streamer = Streamer(bucket_name=bucketName, bucket_key=bucketKey, access_key=accessKey)
 sense = SenseHat()  
 # ---------------------------------
