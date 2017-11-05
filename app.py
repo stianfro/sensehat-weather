@@ -34,8 +34,9 @@ while True:
   # Format the data
   temp_f = temp_calibrated_c
   temp_f = float("{0:.2f}".format(temp_f))
+  temp_c = float("{0:.2f}".format(temp_c))
   humidity = float("{0:.2f}".format(humidity))
-  pressure_in = 0.03937008*(pressure_mb)
+  pressure_in = pressure_mb
   pressure_in = float("{0:.2f}".format(pressure_in))
 
   # Print and stream 
@@ -59,7 +60,6 @@ while True:
   with picamera.PiCamera() as camera:
       camera.resolution = (640, 480)
       camera.vflip = True
-      time.sleep(2)
       camera.capture('/data/image.jpg')
 
   time.sleep(60*MINUTES_BETWEEN_SENSEHAT_READS)
